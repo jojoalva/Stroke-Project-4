@@ -29,6 +29,16 @@ After saving both files as stroke_cleaned_v1.csv and stroke_cleaned_v2.csv, a fe
 
 ## Visualisations
 
+![Picture 4](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/f12d981c-d33d-4be7-9684-d0b13878512b)
+
+![Picture 3](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/c2bc99ba-46b0-42d8-9b46-709106f89054)
+
+![Picture 2](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/3f2c588c-b111-40a6-9e90-6be9e01e8664)
+
+![Picture 1](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/f96e9e97-601c-4f18-937c-71c2ff944e91)
+
+![Picture 5](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/081422b9-92cb-4102-a3cc-f8ef55e83bc9)
+
 
 ## Usage
 blank
