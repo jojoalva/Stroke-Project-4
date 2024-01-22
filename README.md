@@ -22,14 +22,21 @@ Healthcare data of individuals from Kaggle was used to train a machine learning 
 ## Installation
 Python, Pandas, Matplotlib, NumPy, Seaborn, postgresSQL, pgAdmin, Sci-kit learn, Imbalanced-learn
 
+## Data Cleaning
+Data cleaning was achieved by rounding the ages in decimals to the nearest full age. Gender 'Other' was dropped, which affected only one row. Also, the column smoking_status was dropped for the second round as it containted a large number of 'Unknown' values which means that the information is unavailable for this patient.
+
+After saving both files as stroke_cleaned_v1.csv and stroke_cleaned_v2.csv, a few aggregate analysis were performed in SQL to give a brief overview on the dataset. 
+
+## Visualisations
+
+
 ## Usage
 blank
 
 ## Credits
 Maliha, Jo, Sophie, Farheen
 
-## Visualisations
-blank
+
 
 ## Models and Optimisation
 blank
