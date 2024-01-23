@@ -29,6 +29,11 @@ During optimisation, we used various techniques to optimise for precision and re
 
 ![cr3](Classification-Reports/cr3.png)
 
+    GridSearchCV Was used as an automated way to generate the best parameters to improve the recall. Max_features = 11 and max_depth = 14 seemed to be the best.
+    Thus, the RandomForestClassifier model was re-run on the data (not oversampled) with the new params to see if it improved the recall.
+    Unfortunately, precision improved with this dataset but the recall did not. n-estimators = 100 was also changed, which didn't do anything useful, so we returned this param to n-estimators = 100.
+    Thus, using GridSearchCV was unsuccessful.
+
 4. ### Outliers removed from original dataset, oversampled, using RandomForestClassifier
 
 
