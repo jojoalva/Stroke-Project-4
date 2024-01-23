@@ -6,10 +6,11 @@ Healthcare data of individuals from Kaggle was used to train a machine learning 
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
+- [Data Cleaning](#data-cleaning)
 - [Visualtions](#visualisations)
+- [Preprocessing For Baseline Models](#preprocessing-for-baseline-models)
 - [Models and Optimisation](#models-and-optimisation)
+- [Credits](#credits)
 - [Contact](#contact)
 
 ## A. Installation
