@@ -76,15 +76,15 @@ stroke_cleaned_v1.csv is cleaned, by converting the age to its nearest integer, 
 Data set is split into Target Variable y that has the stroke column. 
 X contains the features independent variables, (after deleting the stroke column) that will be used to predict the target variable.
 
-![Alt text](image.png)
+![image (1)](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/08a67cb7-8588-46ad-a421-7c80415692e0)
 
 Splitting the data into Training and Testing Sets
 
-![Alt text](image-1.png)
+![image-1](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/0d6fe3c8-de18-44a1-a097-4594809c176e)
 
 Stardarised the data by using the StandardScaler from sKlearn
 
-![Alt text](image-2.png)
+![image-2](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/61332c8f-f34e-42f7-a9be-e9c93e876ae6)
 
 Handling Imbalanced Data by using Oversampling with SMOTE And RandomOverSampler from imblearn.over_sampling
 
@@ -111,11 +111,11 @@ Support Vector Machine (SVM)
 After Closely observing the Confusion Matrix and classification reports of all the 5 models, We further optimise the Random Forest Model, Support vector MAchine and descion Tree .
 The SVM with Oversampled Data offered the best Recall and accuracy for further optimisation
 
-![Alt text](image-7.png)
+![image-3](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/97a76e79-2d13-4e4a-aa50-ed2044ab7e19)
 
-Confusion Matrix of SVM with oversampled data is showing relatively a low number of False Negatives, though the False positives with the number of 355 is not good so we are further optimising this model to see if its accuracy that is currently 71%, can be improved.
+Confusion Matrix of SVM with oversampled data is showing relatively a low number of False Negatives, though the False positives with the number of 330 is not good so we are further optimising this model to see if its accuracy that is currently 73%, can be improved.
 
-![Alt text](image-8.png)
+![image-4](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/09304123-101c-454b-acb6-180371d11349)
 
 ## E. Models and Optimisation
 We noticed that by running Features Importance on the original dataset whilst we were testing out different models, smoking status was not really useful. This column was therefore dropped.There was also 1 row where the gender was reported as "other", so we dropped this row. This was the first part of our optimisation, done using SQL.
