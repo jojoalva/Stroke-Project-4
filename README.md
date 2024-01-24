@@ -5,23 +5,23 @@ Healthcare data of individuals from Kaggle was used to train a machine learning 
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Data Cleaning](#data-cleaning)
-- [Visualtions](#visualisations)
-- [Preprocessing For Baseline Models](#preprocessing-for-baseline-models)
-- [Models and Optimisation](#models-and-optimisation)
-- [Credits](#credits)
-- [Contact](#contact)
+- [Installation](#Installation)
+- [Data Cleaning](#Data-Cleaning)
+- [Visualisations](#Visualisations)
+- [Preprocessing For Baseline Models](#Preprocessing-For-Baseline-Models)
+- [Models and Optimisation](#Models-and-Optimisation)
+- [Credits](#Credits)
+- [Contact](#Contact)
 
-## A. Installation
+## Installation
 Python, Pandas, Matplotlib, NumPy, Seaborn, postgresSQL, pgAdmin, Sci-kit learn, Imbalanced-learn
 
-## B. Data Cleaning
+## Data Cleaning
 Data cleaning was achieved by rounding the ages in decimals to the nearest full age. Gender 'Other' was dropped, which affected only one row. Also, the column smoking_status was dropped for the second round as it containted a large number of 'Unknown' values which means that the information is unavailable for this patient.
 
 After saving both files as stroke_cleaned_v1.csv and stroke_cleaned_v2.csv, a few aggregate analysis were performed in SQL to give a brief overview on the dataset. 
 
-## C. Visualisations
+## Visualisations
 
 ### Feature Importance
 
@@ -68,7 +68,7 @@ For the Blood sugar you can see the data is far more variable, but there is a po
 
 As briefly mentioned, there are anomalous results. These visualisations are key to highlight issues such as this as most models will require normally distributed data in order to ‘learn’ effectively and make accurate predictions.
 
-## D. Preprocessing For Baseline Models
+## Preprocessing For Baseline Models
 
 stroke_cleaned_v1.csv is cleaned, by converting the age to its nearest integer, and removed Gender "other" which was one row of data. We kept maximum data and have not dropped any column in this dataset. We tested Five models of supervised machine learning by perserving maximum data.
 
@@ -76,15 +76,15 @@ stroke_cleaned_v1.csv is cleaned, by converting the age to its nearest integer, 
 Data set is split into Target Variable y that has the stroke column. 
 X contains the features independent variables, (after deleting the stroke column) that will be used to predict the target variable.
 
-![image (1)](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/08a67cb7-8588-46ad-a421-7c80415692e0)
+![image](Images/Classification-Reports/image.png)
 
 Splitting the data into Training and Testing Sets
 
-![image-1](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/0d6fe3c8-de18-44a1-a097-4594809c176e)
+![image-1](Images/Classification-Reports/image-1.png)
 
 Stardarised the data by using the StandardScaler from sKlearn
 
-![image-2](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/61332c8f-f34e-42f7-a9be-e9c93e876ae6)
+![image-2](Images/Classification-Reports/image-2.png)
 
 Handling Imbalanced Data by using Oversampling with SMOTE And RandomOverSampler from imblearn.over_sampling
 
@@ -110,21 +110,24 @@ Support Vector Machine (SVM)
 
 After Closely observing the Confusion Matrix and classification reports of all the 5 models, We further optimise the Random Forest Model, Support vector MAchine and descion Tree .
 The SVM with Oversampled Data offered the best Recall and accuracy for further optimisation
+![image-3](Images/Classification-Reports/image-3.png)
 
-![image-3](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/97a76e79-2d13-4e4a-aa50-ed2044ab7e19)
+
 
 Confusion Matrix of SVM with oversampled data is showing relatively a low number of False Negatives, though the False positives with the number of 330 is not good so we are further optimising this model to see if its accuracy that is currently 73%, can be improved.
 
-![image-4](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/09304123-101c-454b-acb6-180371d11349)
+![image-4](Images/Classification-Reports/image-4.png)
 
-## E. Models and Optimisation
+
+## Models and Optimisation
+
 We noticed that by running Features Importance on the original dataset whilst we were testing out different models, smoking status was not really useful. This column was therefore dropped.There was also 1 row where the gender was reported as "other", so we dropped this row. This was the first part of our optimisation, done using SQL.
 
 During optimisation, we used various techniques to optimise for precision and recall. The techniques alongside their classification report, with explanation, is as follows:
 
 ### 1. Oversampling data and using RandomForestClassifier
 
-![cr1](Classification-Reports/cr1.png)
+![cr1](Images/Classification-Reports/cr1.png)
 
     We originally went with this model to optimise because it had the highest accuracy score, despite the recall and precision being very poor for those who had been predicted to have a stroke and actually had a stroke. Majority of our optimisation was focused here, thinking we could somehow improve the model using various different algorithms.
 
@@ -137,14 +140,14 @@ During optimisation, we used various techniques to optimise for precision and re
 ### 2. Oversampling data, dropping columns found less important, and using RandomForestClassifier
 
 
-![cr2](Classification-Reports/cr2.png)
+![cr2](Images/Classification-Reports/cr2.png)
 
     This has improved the precision and recall, but only slightly, not good enough for our dataset. 
 
 ### 3. Random Forest Classifier optimised using GridSearchCV
 
 
-![cr3](Classification-Reports/cr3.png)
+![cr3](Images/Classification-Reports/cr3.png)
 
     GridSearchCV Was used as an automated way to generate the best parameters to improve the recall. Max_features = 11 and max_depth = 14 seemed to be the best.
     Thus, the RandomForestClassifier model was re-run on the data (not oversampled) with the new params to see if it improved the recall.
@@ -154,13 +157,13 @@ During optimisation, we used various techniques to optimise for precision and re
 ### 4. Outliers removed from original dataset, oversampled, using RandomForestClassifier
 
 
-![cr4](Classification-Reports/cr4.png)
+![cr4](Images/Classification-Reports/cr4.png)
 
     This has improved the precision and recall even more, but again only slightly, not good enough for our dataset.
 
 ### 5. Balancing no-stroke to match stroke, using RandomForestClassifier
 
-![cr5](Classification-Reports/cr5.png)
+![cr5](Images/Classification-Reports/cr5.png)
 
     This optimisation was the most difficult to justify. The original dataset had to be changed to balance the 'no-stroke' to match the 'stroke' numbers. This made them even. However, this meant we lost a lot of data, thousands of rows. Furthermore, any further optimisation we applied did not add value as the balanced dataset did not match or reflect the structure of the original dataset. Although the confusion matrix was fantastic and much more what we were looking for, we had to abandon this approach as in real life, it did not reflect.
 
@@ -168,7 +171,7 @@ During optimisation, we used various techniques to optimise for precision and re
 
 ### 6. Outliers removed, oversampled, using Support Vector Model
 
-![cr6](Classification-Reports/cr6.png)
+![cr6](Images/Classification-Reports/cr6.png)
 
     Another model that showed good potential was the Support Vector model. This was our chosen model to use, and had we more time and could potentially try other optimisations on them, we would've focused our attention here.
 
@@ -176,7 +179,7 @@ During optimisation, we used various techniques to optimise for precision and re
 
 ### 7. Outliers removed, oversampled, using Decision Tree Model
 
-![cr7](Classification-Reports/cr7.png)
+![cr7](Images/Classification-Reports/cr7.png)
 
 Finally, this was also tried, however it's obvious again that although the accuracy was high, precision and recall still aren't high-enough for us to reliably say this model works. This would be the second model we would work on, in order to further optimise it if we had more time.
 
