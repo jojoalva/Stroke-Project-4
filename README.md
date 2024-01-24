@@ -64,7 +64,7 @@ For BMI we can see the data is far more clustered, with the exception of extreme
 
 For the Blood sugar you can see the data is far more variable, but there is a positive relationship between age and blood sugar. The pink dots show those patients who had a stroke and you can see the data is quite spread out towards the extremes of blood sugar. So this may suggest that blood sugar control becomes more important the older you get in terms of managing stroke risk.
 
-![Picture 5](https://github.com/jojoalva/Stroke-Project-4/assets/108195931/081422b9-92cb-4102-a3cc-f8ef55e83bc9)
+(https://github.com/jojoalva/Stroke-Project-4/blob/main/Images/Visualizations/age_sugar_scatter.pdf)
 
 As briefly mentioned, there are anomalous results. These visualisations are key to highlight issues such as this as most models will require normally distributed data in order to ‘learn’ effectively and make accurate predictions.
 
